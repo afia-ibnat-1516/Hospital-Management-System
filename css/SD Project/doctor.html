@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #8fcbf2, #b6e2f2); /* Gradient background */
+    }
+
+    header {
+            background-color: #045286;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.1);
+    }
+    footer {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #333;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 8px;
+      margin-bottom: 16px;
+    }
+
+    button {
+      background-color: hsl(221, 39%, 49%);
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #4c70af;
+      color: #fff;
+    }
+  </style>
+
+    </head>      
+<body>
+
+  <header>
+    <h1> Appointment Schedule </h1>
+  </header>
+  
+  <img src="photo_2024-02-05_20-19-26.jpg" alt="Description of the image" width="1500px" height="500px">
+
+  <main>
+    <form id="appointmentForm">
+      <label for="patientName">Patient Name:</label>
+      <input type="text" id="patientName" required>
+
+      <label for="appointmentDate">Appointment Date:</label>
+      <input type="date" id="appointmentDate" required>
+
+      <label for="appointmentTime">Appointment Time:</label>
+      <input type="time" id="appointmentTime" required>
+      
+      
+
+      <button type="button" onclick="addAppointment()">Add Appointment</button>
+    </form>
+
+    <table id="appointmentTable">
+      <thead>
+        <tr>
+          <th>Patient Name</th>
+          <th>Appointment Date</th>
+          <th>Appointment Time</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Appointments will be added here dynamically -->
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    function addAppointment() {
+      const patientName = document.getElementById('patientName').value;
+      const appointmentDate = document.getElementById('appointmentDate').value;
+      const appointmentTime = document.getElementById('appointmentTime').value;
+     
+
+      if (patientName && appointmentDate && appointmentTime) {
+        const table = document.getElementById('appointmentTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow(table.rows.length);
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        const cell3 = newRow.insertCell(2);
+       
+
+        cell1.innerHTML = patientName;
+        cell2.innerHTML = appointmentDate;
+        cell3.innerHTML = appointmentTime;
+        
+
+        // Clear form fields after adding appointment
+        document.getElementById('patientName').value = '';
+        document.getElementById('appointmentDate').value = '';
+        document.getElementById('appointmentTime').value = '';
+       
+      } else {
+        alert('Please fill in all fields.');
+      }
+    }
+  </script>
+
+</body>
+
+</html>
