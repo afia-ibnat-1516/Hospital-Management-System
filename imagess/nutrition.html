@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Management System</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #a9b1ee, #b6e2f2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      background-color: #543785;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      width: 100%;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    label {
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    button {
+      background-color: #665da8;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #756cb9;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 15px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    th {
+      background-color: #8962b6;
+      color: #fff;
+    }
+
+    tbody tr {
+      background-color: #f9f9f9;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    tbody tr:hover {
+      background-color: #e6e6e6;
+      transform: scale(1.01);
+    }
+
+    tbody tr td:first-child {
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    tbody tr td:last-child {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    .images-container {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .images-container img {
+      width: 48%;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 10px;
+      }
+
+      form {
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 8px;
+      }
+
+      th, td {
+        padding: 10px;
+      }
+
+      .images-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .images-container img {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nutrition Tracking</h1>
+  </header>
+
+  <main>
+    <div class="images-container">
+      <img src="Diet_Food_Pyramid.jpg" alt="Diet Food Pyramid">
+      <img src="R (5).jpg" alt="Another Image">
+    </div>
+
+    <form id="nutritionForm">
+      <label for="foodItem">Food Item:</label>
+      <input type="text" id="foodItem" required>
+
+      <label for="nutritionDate">Date:</label>
+      <input type="date" id="nutritionDate" required>
+
+      <label for="calorie">Calorie:</label>
+      <input type="number" id="calorie" required>
+
+      <button type="button" onclick="addNutrition()">Add record</button>
+    </form>
+
+    <table id="nutritionTable">
+      <thead>
+        <tr>
+          <th>Food Item</th>
+          <th>Date</th>
+          <th>Calorie</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Records will be added here dynamically -->
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    function addNutrition() {
+      const foodItem = document.getElementById('foodItem').value;
+      const nutritionDate = document.getElementById('nutritionDate').value;
+      const calorie = document.getElementById('calorie').value;
+
+      if (foodItem && nutritionDate && calorie) {
+        const table = document.getElementById('nutritionTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow(table.rows.length);
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        const cell3 = newRow.insertCell(2);
+
+        cell1.innerHTML = foodItem;
+        cell2.innerHTML = nutritionDate;
+        cell3.innerHTML = calorie;
+
+        // Clear form fields after adding record
+        document.getElementById('foodItem').value = '';
+        document.getElementById('nutritionDate').value = '';
+        document.getElementById('calorie').value = '';
+      } else {
+        alert('Please fill in all fields.');
+      }
+    }
+  </script>
+
+</body>
+</html>
