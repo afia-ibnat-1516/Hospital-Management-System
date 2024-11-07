@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Management System - Medication History</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #8fcbf2, #b6e2f2); /* Gradient background */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #045286;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        main {
+            padding: 2em;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #333;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        form {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select, textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4c59ae;
+            color: #ffffff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #395193;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4c70af;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Medication History Tracker</h1>
+</header>
+
+<main>
+    <div class="image-container">
+        <img src="What-Are-The-5-R-For-Medication-Safety.jpg" alt="Left Image 1">
+        <img src="pills-and-records.jpg" alt="Left Image 2">
+        <img src="OIP (5).jpg" alt="Right Image 1">
+    </div>
+
+    <form id="medicationHistoryForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="medication">Medication History:</label>
+        <textarea id="medication" name="medication" rows="4" required></textarea>
+
+        <label for="dosage">Dosage:</label>
+        <input type="text" id="dosage" name="dosage" required>
+
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time" required>
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="exercisePerDay">Exercise Timing Per Day:</label>
+        <input type="text" id="exercisePerDay" name="exercisePerDay" required>
+
+        <label for="exercisePerWeek">Exercise Timing Per Week:</label>
+        <input type="text" id="exercisePerWeek" name="exercisePerWeek" required>
+
+        <button type="button" onclick="submitMedicationHistory()">Submit</button>
+    </form>
+
+    <table id="medicationHistoryTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Medication</th>
+                <th>Dosage</th>
+                <th>Time</th>
+                <th>Date</th>
+                <th>Exercise Per Day</th>
+                <th>Exercise Per Week</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Medication history records will be added here dynamically -->
+        </tbody>
+    </table>
+</main>
+
+<script>
+    function submitMedicationHistory() {
+        // Fetch form values
+        var name = document.getElementById('name').value;
+        var age = document.getElementById('age').value;
+        var gender = document.getElementById('gender').value;
+        var medication = document.getElementById('medication').value;
+        var dosage = document.getElementById('dosage').value;
+        var time = document.getElementById('time').value;
+        var date = document.getElementById('date').value;
+        var exercisePerDay = document.getElementById('exercisePerDay').value;
+        var exercisePerWeek = document.getElementById('exercisePerWeek').value;
+
+        if (name && age && gender && medication && dosage && time && date && exercisePerDay && exercisePerWeek) {
+            // Get the table body element
+            var tableBody = document.getElementById('medicationHistoryTable').getElementsByTagName('tbody')[0];
+
+            // Create a new row
+            var newRow = tableBody.insertRow();
+
+            // Insert cells and set their values
+            newRow.insertCell(0).innerText = name;
+            newRow.insertCell(1).innerText = age;
+            newRow.insertCell(2).innerText = gender;
+            newRow.insertCell(3).innerText = medication;
+            newRow.insertCell(4).innerText = dosage;
+            newRow.insertCell(5).innerText = time;
+            newRow.insertCell(6).innerText = date;
+            newRow.insertCell(7).innerText = exercisePerDay;
+            newRow.insertCell(8).innerText = exercisePerWeek;
+
+            // Clear form fields
+            document.getElementById('medicationHistoryForm').reset();
+        } else {
+            alert('Please fill in all fields.');
+        }
+    }
+</script>
+
+</body>
+</html>
