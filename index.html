@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <title>Health Management System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.3.2/core.css">
+      <script type="module" src="https://pyscript.net/releases/2024.3.2/core.js"></script>
+
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">H.M.S</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="service.html">SERVICE</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                   
+                </ul>
+            </div>
+        </div>
+        <br>
+        <div class="content">
+            <h2>Health<br> Management<br>System</h2><br><h1>Welcome To <br><span>Healthy</span></h1><br>
+            <p>
+                The health management system (HMS) <br>is an evolutionary medicine regulative<br> process proposed by Nicholas Humphrey <br>in which actuarial assessment of fitness<br> and economic-type cost–benefit <br>analysis determine the body's regulation<br> of its physiology and health.
+            </p><br>
+            <img class="moving-object" src="staff-medical-wearing-medical-mask-against-pandemic_24877-64461.jpg" alt="Your Object">
+
+            <button class="cn"><a href="signup.html">JOIN US</a></button>
+           
+            
+
+            </div>
+        </div>
+    </div>
+    
+    
+    </div>
+    
+        <style>
+        .dashboard {
+            background-color: #f8f9fa; /* Light gray background */
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dashboard h2 {
+            color: #007bff; /* Blue header text color */
+            font-family: 'Arial', sans-serif; /* Choose your preferred font family */
+            margin-bottom: 10px;
+        }
+        
+        /* Health Information and Appointments Sections */
+        .health-info, .appointments {
+            margin-top: 20px;
+        }
+        
+        .health-info h3, .appointments h3 {
+            color: #343a40; /* Dark text color for section headers */
+            border-bottom: 2px solid #6c757d; /* Border color under section headers */
+            padding-bottom: 5px;
+            font-size: 20px;
+        }
+        
+        .health-info ul, .appointments ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .health-info li, .appointments li {
+            margin: 10px 0;
+            font-weight: bold;
+            color: #495057; /* Dark text color for list items */
+        }
+        
+        /* Optional: Add hover effect on list items */
+        .health-info li:hover, .appointments li:hover {
+            background-color: #e9ecef; /* Light gray background on hover */
+            transition: background-color 0.3s;
+        }
+        </style>
+       <style>
+        /* Existing styles remain unchanged */
+
+        /* Styles for moving object */
+        .moving-object {
+            width: 300px; /* Adjust the width as needed */
+            height: auto; /* Maintain aspect ratio */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: moveObject 20s linear infinite; /* Adjust duration and easing as needed */
+        }
+
+        @keyframes moveObject {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) rotate(180deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+    </style>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+
+</html>
